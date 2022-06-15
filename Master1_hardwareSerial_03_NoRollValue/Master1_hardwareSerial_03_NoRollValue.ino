@@ -37,16 +37,12 @@ void loop() {
     sensor_value_true = false;
   }
   
-//  headphone_Wearing_start();
   Serial.print(roll);
   Serial.print(",");
   Serial.println(sensor_value_true);
 
   if (sensor_value_true) { 
-//    uint16_t sinBeat = beatsin16(35, 0, NUM_LEDS - 1, 0, 0);
-    leds[15] = CRGB::White;
-//    fadeToBlackBy(leds, NUM_LEDS, 1);
-    FastLED.show();
+    
   }else{
     for (int i=0; i < 255; i++) {
       fadeToBlackBy(leds, NUM_LEDS, 5);
@@ -62,7 +58,6 @@ void reception_valueISR() {     // RF통신으로 센서 값 수신
       roll = Serial.write(HC12.read());                                      // HC-12 모듈의 출력 내용을 읽어 시리얼 모니터로 전송
 
 //      char data = HC12.read();
-//      
 //      if (data == '\n') {
 //        Buffer[cnt] = '\0';      
 //      }
